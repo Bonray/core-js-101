@@ -423,8 +423,12 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(arr) {
-  // eslint-disable-next-line no-nested-ternary
-  return arr.sort((a, b) => (a.country < b.country ? -1 : a.country > b.country ? 1 : a.city < b.city ? -1 : 1));
+  return arr.sort((a, b) => {
+    if (a.country < b.country) return -1;
+    if (a.country > b.country) return 1;
+    if (a.city < b.city) return -1;
+    return 1;
+  });
 }
 
 /**
